@@ -1,3 +1,4 @@
+@props(['job'])
 <div class="p-4 bg-gray-700 rounded-xl flex gap-x-6">
     <div>
         <x-employer-logo />
@@ -7,10 +8,11 @@
         <h3 class="font-bold text-xl mt-3">Video Producer</h3>
         <p class="text-sm text-gray-500 mt-auto">Full time - From 45.000$</p>
     </div>
-    <div>
-        <x-tag>Remote</x-tag>
-        <x-tag>Full Time</x-tag>
-        <x-tag>Senior</x-tag>
-        <x-tag>English</x-tag>
+    <div class="flex justify-between items-center mt-auto">
+        <div class="flex flex-wrap gap-2">
+            @foreach ($job->tags as $tag)
+                <x-tag size="small" :$tag />
+            @endforeach
+        </div>
     </div>
 </div>
